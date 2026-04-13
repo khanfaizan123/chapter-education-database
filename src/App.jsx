@@ -7,23 +7,24 @@ const entities = {
     color: "#1a3a5c",
     accent: "#4a90d9",
     x: 380,
-    y: 260,
+    y: 200,
     fields: [
       { name: "session (Auto Number)", type: "Auto Number", pk: true },
-      { name: "chapter", type: "Lookup → Account", fk: true },
-      { name: "category", type: "Picklist", fk: true },
-      { name: "sessionFormatId", type: "Picklist", fk: true },
-      { name: "speakerTypeId", type: "Picklist", fk: true },
-      { name: "organizationId", type: "Picklist", fk: true },
       { name: "chapterPartnered", type: "Picklist" },
+      { name: "category", type: "Picklist", fk: true },
       { name: "dateOccurred", type: "Date/Time" },
-      { name: "sessionName", type: "Text" },
       { name: "speaker", type: "Text" },
+      { name: "sessionName", type: "Text" },
+      { name: "sessionFormat", type: "Picklist", fk: true },
       { name: "rating", type: "Number (Float)" },
       { name: "evalNumber", type: "Number (Int)" },
       { name: "attendance", type: "Number (Int)" },
+      { name: "speakerType", type: "Picklist", fk: true },
+       { name: "chapter", type: "Lookup → Account", fk: true },
       { name: "comments", type: "Long Text" },
+      { name: "organization", type: "Picklist", fk: true },
       { name: "dateAdded", type: "Date/Time" },
+      
       { name: "speakerPhone", type: "Phone" },
       { name: "speakerEmail", type: "Email" },
       { name: "sessionDescription", type: "Long Text" },
@@ -34,7 +35,6 @@ const entities = {
       { name: "acc_cle", type: "Checkbox" },
       { name: "acc_hrci", type: "Checkbox" },
       { name: "acc_shrm", type: "Checkbox" },
-      { name: "acc_other", type: "Checkbox" },
       { name: "acc_other_text", type: "Text" },
     ],
   },
@@ -99,7 +99,7 @@ const entities = {
     ],
   },
   OrganisationPicklist: {
-    label: "Organisation Name",
+    label: "Organisation",
     subtitle: "Picklist (replaces Partners table)",
     color: "#1a3a3a",
     accent: "#1abc9c",
@@ -272,9 +272,7 @@ export default function App() {
       <div style={{ padding: "28px 32px" }}>
         {activeTab === "diagram" && (
           <div>
-            <div style={{ fontSize: 11, color: "#6b7a99", marginBottom: 12 }}>
-              Click any entity to highlight it. 🔑 Primary Key / Auto Number &nbsp;|&nbsp; 🔗 Foreign Key / Lookup / Picklist Reference
-            </div>
+
             <div style={{ overflowX: "auto", borderRadius: 12, border: "1px solid rgba(255,255,255,0.07)", background: "#0e1422" }}>
               <svg width={totalW} height={totalH} style={{ display: "block" }}>
                 <defs>
@@ -322,7 +320,7 @@ export default function App() {
                     <g>
                       <path d={`M${x1},${y1} C${mx},${y1} ${mx},${y2} ${x2},${y2}`}
                         fill="none" stroke="#4caf7d" strokeWidth={2} strokeDasharray="6,3" markerEnd="url(#arrowGreen)" opacity={0.7} />
-                      <rect x={mx - 34} y={(y1 + y2) / 2 - 9} width={68} height={16} rx={4} fill="#0b0f1a" />
+                      <rect x={mx - 34} y={(y1 + y2) / 2-9} width={68} height={16} rx={4} fill="#0b0f1a" />
                       <text x={mx} y={(y1 + y2) / 2 + 3} textAnchor="middle" fill="#4caf7d" fontSize={9} fontFamily="'IBM Plex Mono', monospace">Lookup</text>
                     </g>
                   );
