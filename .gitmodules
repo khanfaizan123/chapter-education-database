@@ -1,0 +1,3 @@
+[submodule "chapter-education-database"]
+    path = chapter-education-database
+    url = https://github.com/khanfaizan123/chapter-education-database.git
