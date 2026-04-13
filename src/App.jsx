@@ -432,7 +432,7 @@ export default function App() {
               {
                 color: "#ffd700", title: "Why Integer IDs Are Eliminated for Picklists",
                 body: "In MSSQL, integer foreign keys (categoryId=3, speakerTypeId=2, etc.) linked to separate lookup tables. In Salesforce picklists, there are NO integer IDs. Salesforce stores the picklist API value directly on the record. The 'ID' concept is replaced by the picklist API name which is a stable string identifier. This simplifies the schema significantly — you go from 5 tables down to 1 object with picklist fields."
-              },
+              }, 
               {
                 color: "#6b7a99", title: "Accreditation Checkboxes (acc_clm, acc_cpe, etc.)",
                 body: "The 7 bit/boolean fields (acc_clm, acc_clm_2, acc_cpe, acc_cle, acc_hrci, acc_shrm, acc_other) map directly to Salesforce Checkbox fields. acc_other_text maps to a Text field. These stay as individual fields on the Session object — no change needed. Alternatively they could be modelled as a multi-select picklist if desired."
